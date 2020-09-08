@@ -11,4 +11,9 @@ public class Hello {
     public String a (){
         return "aaa";
     }
+
+    @RequestMapping(value = "/world", method = RequestMethod.GET)
+    public String b (){
+        return "aaa";
+    }
 }

@@ -1,7 +1,6 @@
 package com.datamanage.business.dao;
 
 import com.datamanage.business.model.DBInfo;
-import com.datamanage.common.base.BaseMapper;
 
 import java.util.List;
 
