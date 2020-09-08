@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace表示对应的对象映射-->
-<mapper namespace="com.datamanage.dao.DBInfoMapper">
+<mapper namespace="com.datamanage.business.dao.DBInfoMapper">
     <select id="queryDBInfoByUser" resultType="com.datamanage.business.model.DBInfo">
         select * from DM_DATASOURCE where CREATOR = #{userId}
     </select>

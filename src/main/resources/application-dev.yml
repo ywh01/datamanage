@@ -4,33 +4,61 @@
 ## 数据库设置
 spring:
   datasource:
-    url: jdbc:oracle:thin:@//localhost:1521/ORCL
-    username: YS
-    password: 123456
-    publicKey:
-    initialSize: 1
-    minIdle: 1
-    maxActive: 20
-    maxWait: 60000
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    poolPreparedStatements: true
-    maxPoolPreparedStatementPerConnectionSize: 20
-    validationQuery: SELECT 1
-    filters: stat,log4j,wall,config
-###############################################################################
+    druid:
+      driver-class-name: oracle.jdbc.OracleDriver
+      #表示使用的数据源类型,这里使用druid，所以不需指明
+      #type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:oracle:thin:@//localhost:1521/ORCL
+      username: DATAMANAGE
+      password: 123456
+      #启动程序时，在连接池中初始化多少个连接
+      initial-size: 5
+      #回收空闲连接时，将保证至少有minIdle个连接.
+      min-idle: 1
+      #连接池中最多支持多少个活动会话
+      max-active: 20
+      #程序向连接池中请求连接时,超过maxWait的值后，认为本次请求失败.即连接池没有可用连接，单位毫秒，设置-1时表示无限等待
+      max-wait: 1000
+      #检查空闲连接的频率，单位毫秒, 非正整数时表示不进行检查
+      timeBetweenEvictionRunsMillis: 60000
+      #池中某个连接的空闲时长达到 N 毫秒后, 连接池在下次检查空闲连接时，将回收该连接,要小于防火墙超时设置
+      minEvictableIdleTimeMillis: 300000
+      #缓存通过以下两个方法发起的SQL
+      poolPreparedStatements: true
+      #每个连接最多缓存多少个SQL
+      maxPoolPreparedStatementPerConnectionSize: 20
+      #检查池中的连接是否仍可用的 SQL 语句,drui会连接到数据库执行该SQL, 如果正常返回，则表示连接可用，否则表示连接不可用
+      validation-query: select 1 from dual
+      #这里配置的是插件,常用的插件有:
+      # 监控统计: filter:stat 日志监控: filter:log4j 或者 slf4j 防御SQL注入: filter:wall
+      filters: stat,log4j,wall
+      #监控的配置
+      stat-view-servlet:
+        #登录账号
+        login-username: system
+        #登录密码
+        login-password: 123456
+        #白名单，多个“,”分隔
+        allow:
+        #黑名单，多个“,”分隔
+        deny:
+        #登录地址
+        url-pattern: /druid/*
+        #是否开启监控
+        enabled: true
+  ###############################################################################
 ## redis配置
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    password: 123456
-    timeout: 10000ms
-    jedis:
-      pool:
-        max-active: 50
-        max-idle: 5
-        min-idle: 0
-        max-wait: 10000ms
+#  redis:
+#    host: 127.0.0.1
+#    port: 6379
+#    password: 123456
+#    timeout: 10000ms
+#    jedis:
+#      pool:
+#        max-active: 50
+#        max-idle: 5
+#        min-idle: 0
+#        max-wait: 10000ms
 ###############################################################################
 ## 日志配置路径
 logging:
@@ -38,5 +66,5 @@ logging:
 ###############################################################################
 ## swagger配置
 swagger:
-  enable: false
+  enable: true
 ###############################################################################
