@@ -1,6 +1,6 @@
-package com.datamanage.business.dao;
+package com.datamanage.business.base.dao;
 
-import com.datamanage.business.model.DBInfo;
+import com.datamanage.business.base.model.DBInfo;
 
 import java.util.List;
 
