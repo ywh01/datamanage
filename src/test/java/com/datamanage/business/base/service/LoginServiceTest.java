@@ -11,11 +11,11 @@ class LoginServiceTest {
     @Autowired
     private LoginService loginService;
 
-    @Test
-    public String a(){
-        String caorui = loginService.userLogin("123456", "caorui");
-        return caorui;
-    }
+//    @Test
+//    public String a(){
+//        String caorui = loginService.userLogin("123456", "caorui");
+//        return caorui;
+//    }
 
 
 }

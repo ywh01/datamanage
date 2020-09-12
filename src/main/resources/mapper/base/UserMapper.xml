@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace表示对应的对象映射-->
 <mapper namespace="com.datamanage.business.base.dao.UserMapper">
-    <select id="getUserModelByIDAndPwd" resultType="com.alibaba.fastjson.JSONObject">
-        select * from DM_USER where ID = #{id} and PWD = #{pwd}
+    <select id="getUserModelByID" resultType="com.alibaba.fastjson.JSONObject">
+        select * from DM_USER where ID = #{id}
     </select>
 
 <!--    <resultMap id="queryForListMap" type="com.datamanage.business.base.model.UserModel">-->
