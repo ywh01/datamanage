@@ -24,6 +24,8 @@ public class LoginController {
      @RequestMapping(value = "/loginIn", method = RequestMethod.GET)
      public String loginIn(String id, String pwd){
          String res = loginService.userLogin(id, pwd);
+
+
          return res;
      }
 }
