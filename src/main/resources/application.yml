@@ -42,6 +42,8 @@ mybatis:
     - classpath:mapper/**/*Mapper.xml
   configuration:
     log-impl:  org.apache.ibatis.logging.stdout.StdOutImpl
+###############################################################################
+#盐
 salt: caorui
 ###############################################################################
 ## mapper

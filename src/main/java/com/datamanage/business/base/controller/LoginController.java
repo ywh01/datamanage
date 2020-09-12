@@ -1,6 +1,8 @@
 package com.datamanage.business.base.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.datamanage.business.base.service.LoginService;
+import com.datamanage.common.utils.result.BaseResult;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +23,9 @@ public class LoginController {
      @ApiOperation(value = "登录接口", notes = "判断账号密码是否正确，如果正确，加载所属权限组菜单及权限")
      @RequestMapping(value = "/loginIn", method = RequestMethod.GET)
      public String loginIn(String id, String pwd){
-         String res = loginService.userLogin(id,pwd);
+         String res = loginService.userLogin(id, pwd);
+
+
          return res;
      }
-
 }
