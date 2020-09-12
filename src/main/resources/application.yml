@@ -16,6 +16,13 @@ server:
 spring:
   profiles:
     active: dev
+  # 服务模块
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: true
+
+
 ###############################################################################
 ## 项目参数，从maven中读取
 project:
@@ -35,7 +42,7 @@ mybatis:
     - classpath:mapper/**/*Mapper.xml
   configuration:
     log-impl:  org.apache.ibatis.logging.stdout.StdOutImpl
-
+salt: caorui
 ###############################################################################
 ## mapper
 #mapper:

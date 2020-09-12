@@ -10,14 +10,15 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
 @EnableCaching
-@ComponentScan(basePackages = {"com.datamanage.business.controller"})
-@MapperScan(basePackages = {"com.datamanage.business.dao"})
+@ComponentScan(basePackages = {"com.datamanage.business"})
+@MapperScan(basePackages = {"com.datamanage.business.base.dao"})
 public class DatamanageApplication {
 
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(DatamanageApplication.class);
-        //关闭banner
-        application.setBannerMode(Banner.Mode.OFF);
-        application.run(args);
+        SpringApplication.run(DatamanageApplication.class, args);
+//        SpringApplication application = new SpringApplication(DatamanageApplication.class);
+//        //关闭banner
+//        application.setBannerMode(Banner.Mode.OFF);
+//        application.run(args);
     }
 }

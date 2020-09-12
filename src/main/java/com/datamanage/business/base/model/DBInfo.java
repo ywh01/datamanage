@@ -1,4 +1,4 @@
-package com.datamanage.business.model;
+package com.datamanage.business.base.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
