@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace表示对应的对象映射-->
 <mapper namespace="com.datamanage.business.base.dao.UserMapper">
-    <select id="getUserModelByID" resultType="com.alibaba.fastjson.JSONObject">
+    <select id="getUserModelByID" resultType="com.datamanage.business.base.model.UserModel">
         select * from DM_USER where ID = #{id}
     </select>
 
