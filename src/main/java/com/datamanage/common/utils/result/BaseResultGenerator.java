@@ -90,6 +90,24 @@ public class BaseResultGenerator {
     }
 
     /**
+     * 带token的返回结果
+     *
+     * @param code    返回编码
+     * @param message 返回消息
+     * @param data    返回数据
+     * @param <T>     返回数据类型
+     * @return 返回结果
+     */
+    public static <T> String success(final String message, final String token, T data) {
+        JSONObject obj = new JSONObject();
+        obj.put("code",200);
+        obj.put("message",message);
+        obj.put("token",token);
+        obj.put("data",data);
+        return obj.toString();
+    }
+
+    /**
      * 操作失败响应结果， 默认结果
      *
      * @return 操作成功的默认响应结果
