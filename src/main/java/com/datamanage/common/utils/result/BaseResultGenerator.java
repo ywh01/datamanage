@@ -4,6 +4,7 @@ package com.datamanage.common.utils.result;
 import com.alibaba.fastjson.JSONObject;
 import com.datamanage.common.enums.BaseResultEnum;
 import com.datamanage.common.exception.BusinessException;
+import com.datamanage.common.utils.json.JSONUtil;
 
 /**
  * BaseResult生成器
@@ -33,7 +34,7 @@ public class BaseResultGenerator {
      * @param <T>  自定义数据类型
      * @return 响应结果
      */
-    public static <T> String success(final T data) {
+    public static <T> String successData(final T data) {
         JSONObject obj = new JSONObject();
         obj.put("code",BaseResultEnum.SUCCESS.getCode());
         obj.put("message",BaseResultEnum.SUCCESS.getMessage());
@@ -45,10 +46,9 @@ public class BaseResultGenerator {
      * 操作成功响应结果，自定义数据，默认信息
      *
      * @param message 自定义数据
-     * @param <T>  自定义数据类型
      * @return 响应结果
      */
-    public static <T> String success(final String message) {
+    public static String successMessage(final String message) {
         JSONObject obj = new JSONObject();
         obj.put("code",BaseResultEnum.SUCCESS.getCode());
         obj.put("message",message);
@@ -92,7 +92,6 @@ public class BaseResultGenerator {
     /**
      * 带token的返回结果
      *
-     * @param code    返回编码
      * @param message 返回消息
      * @param data    返回数据
      * @param <T>     返回数据类型
@@ -103,7 +102,7 @@ public class BaseResultGenerator {
         obj.put("code",200);
         obj.put("message",message);
         obj.put("token",token);
-        obj.put("data",data);
+        obj.put("data", JSONUtil.toJSONObj(data));
         return obj.toString();
     }
 

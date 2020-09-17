@@ -1,15 +1,11 @@
 package com.datamanage;
 
-import com.datamanage.business.base.dao.DBInfoMapper;
-import com.datamanage.business.base.dao.UserMapper;
-import com.datamanage.business.base.model.DBInfo;
-import com.datamanage.business.base.model.UserModel;
-import com.datamanage.common.utils.pwd.DoubleMd5Utils;
+import com.datamanage.business.common.dao.DBInfoMapper;
+import com.datamanage.business.common.model.DBInfo;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.sql.DataSource;

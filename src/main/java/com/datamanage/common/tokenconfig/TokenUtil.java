@@ -1,4 +1,4 @@
-package com.datamanage.common.utils.login;
+package com.datamanage.common.tokenconfig;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

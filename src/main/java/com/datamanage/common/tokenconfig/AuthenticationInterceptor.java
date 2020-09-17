@@ -1,4 +1,4 @@
-package com.datamanage.common.utils.login;
+package com.datamanage.common.tokenconfig;
 
 
 import com.auth0.jwt.JWT;
@@ -55,8 +55,8 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             }
         }
         //检查有没有需要@UserLoginToken的注解
-        if (method.isAnnotationPresent(com.datamanage.common.utils.login.UserLoginToken.class)) {
-            com.datamanage.common.utils.login.UserLoginToken userLoginToken = method.getAnnotation(com.datamanage.common.utils.login.UserLoginToken.class);
+        if (method.isAnnotationPresent(UserLoginToken.class)) {
+            UserLoginToken userLoginToken = method.getAnnotation(UserLoginToken.class);
             if (userLoginToken.required()) {
                 //执行认证
                 if (token == null) {
@@ -70,7 +70,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                     throw new RuntimeException("401");
                 }
                 // 验证 token
-                JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(com.datamanage.common.utils.login.TokenUtil.SECRET)).build();
+                JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(TokenUtil.SECRET)).build();
                 try {
                     jwtVerifier.verify(token);
                 } catch (JWTVerificationException e) {

@@ -12,8 +12,8 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @EnableCaching
 @EnableSwagger2
-@ComponentScan(basePackages = {"com.datamanage.business"})
-@MapperScan(basePackages = {"com.datamanage.business.base.dao"})
+//@ComponentScan(basePackages = {"com.datamanage.business"})
+@MapperScan(basePackages = {"com.datamanage.business.base.dao","com.datamanage.business.common.dao"})
 public class DatamanageApplication {
 
     public static void main(String[] args) {

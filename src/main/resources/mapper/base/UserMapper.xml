@@ -22,7 +22,7 @@
 <!--        </collection>-->
 <!--    </resultMap>-->
 <!--
-    <select id="queryDBInfoById" resultType="com.datamanage.business.base.model.DBInfo">
+    <select id="queryDBInfoById" resultType="com.datamanage.business.common.model.DBInfo">
         select * from DM_DATASOURCE where ID = #{id}
     </select>
 
@@ -31,7 +31,7 @@
     &lt;!&ndash;keyColumn表示数据库对应的字段&ndash;&gt;
     &lt;!&ndash;parameterType表示方法参数类型&ndash;&gt;
     <insert id="insertDBInfo" useGeneratedKeys="true" keyProperty="id" keyColumn="ID"
-            parameterType="com.datamanage.business.base.model.DBInfo">
+            parameterType="com.datamanage.business.common.model.DBInfo">
         insert into
             DM_DATASOURCE(ID,NAME,DRIVERTYPE,VERSION,IP,PORT,DB,USER,PASSWORD,REMARKS,CREATOR,CREATOR,MODIFIER,UPDATETIME)
         values
@@ -39,7 +39,7 @@
             ,#{creator},#{createTime},#{modifier},#{updateTime})
     </insert>
     
-    <update id="updateDBInfo" parameterType="com.datamanage.business.base.model.DBInfo">
+    <update id="updateDBInfo" parameterType="com.datamanage.business.common.model.DBInfo">
         update DM_DATASOURCE
         <set>
             <if test="id!=null">ID=#{id}</if>

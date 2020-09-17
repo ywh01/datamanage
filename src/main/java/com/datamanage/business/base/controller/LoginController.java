@@ -1,9 +1,6 @@
 package com.datamanage.business.base.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.datamanage.business.base.service.LoginService;
-import com.datamanage.common.utils.login.UserLoginToken;
-import com.datamanage.common.utils.result.BaseResult;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +16,6 @@ public class LoginController {
      private LoginService loginService;
 
      @CrossOrigin
-     @UserLoginToken
      @ApiOperation(value = "登录接口", notes = "判断账号密码是否正确，如果正确，加载所属权限组菜单及权限")
      @RequestMapping(value = "/loginIn", method = RequestMethod.POST)
      public String loginIn(String id, String pwd){
