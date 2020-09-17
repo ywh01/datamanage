@@ -64,4 +64,9 @@ public class Md5Utils
             return s;
         }
     }
+
+    public static void main(String[] args) {
+        String a = hash("123456");
+        System.out.println(a);
+    }
 }

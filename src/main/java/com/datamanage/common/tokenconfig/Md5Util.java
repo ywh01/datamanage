@@ -1,4 +1,4 @@
-package com.datamanage.common.utils.login;
+package com.datamanage.common.tokenconfig;
 
 import sun.misc.BASE64Encoder;
 

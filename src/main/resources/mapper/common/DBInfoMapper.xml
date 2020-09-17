@@ -3,12 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace表示对应的对象映射-->
-<mapper namespace="com.datamanage.business.base.dao.DBInfoMapper">
-    <select id="queryDBInfoByUser" resultType="com.datamanage.business.base.model.DBInfo">
+<mapper namespace="com.datamanage.business.common.dao.DBInfoMapper">
+    <select id="queryDBInfoByUser" resultType="com.datamanage.business.common.model.DBInfo">
         select * from DM_DATASOURCE where CREATOR = #{userId}
     </select>
 
-    <select id="queryDBInfoById" resultType="com.datamanage.business.base.model.DBInfo">
+    <select id="queryDBInfoById" resultType="com.datamanage.business.common.model.DBInfo">
         select * from DM_DATASOURCE where ID = #{id}
     </select>
 
@@ -17,7 +17,7 @@
     <!--keyColumn表示数据库对应的字段-->
     <!--parameterType表示方法参数类型-->
     <insert id="insertDBInfo" useGeneratedKeys="true" keyProperty="id" keyColumn="ID"
-            parameterType="com.datamanage.business.base.model.DBInfo">
+            parameterType="com.datamanage.business.common.model.DBInfo">
         insert into
             DM_DATASOURCE(ID,NAME,DRIVERTYPE,VERSION,IP,PORT,DB,USER,PASSWORD,REMARKS,CREATOR,CREATOR,MODIFIER,UPDATETIME)
         values
@@ -25,7 +25,7 @@
             ,#{creator},#{createTime},#{modifier},#{updateTime})
     </insert>
     
-    <update id="updateDBInfo" parameterType="com.datamanage.business.base.model.DBInfo">
+    <update id="updateDBInfo" parameterType="com.datamanage.business.common.model.DBInfo">
         update DM_DATASOURCE
         <set>
             <if test="id!=null">ID=#{id}</if>

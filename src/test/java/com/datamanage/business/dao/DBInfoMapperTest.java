@@ -1,6 +1,6 @@
 package com.datamanage.business.dao;
 
-import com.datamanage.business.base.dao.DBInfoMapper;
+import com.datamanage.business.common.dao.DBInfoMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

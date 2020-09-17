@@ -1,4 +1,4 @@
-package com.datamanage.common.utils.login;
+package com.datamanage.common.tokenconfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,7 +31,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
      * @return
      */
     @Bean
-    public com.datamanage.common.utils.login.AuthenticationInterceptor authenticationInterceptor() {
-        return new com.datamanage.common.utils.login.AuthenticationInterceptor();
+    public AuthenticationInterceptor authenticationInterceptor() {
+        return new AuthenticationInterceptor();
     }
 }
