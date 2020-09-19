@@ -51,10 +51,11 @@ public class JSONUtil {
      * 将一个list对象装换为Json对象
      * @param list
      */
-    public static JSONArray toJSONArray(List<DBInfo> list) {
-        String res = JSONObject.toJSONString(list,config,features);
-        return (JSONArray) JSONObject.parse(res);
+    public static JSONArray toJSONArray(List list) {
+        String res = JSONArray.toJSONString(list,config,features);
+        return (JSONArray) JSONArray.parse(res);
     }
+
     /**
      * 将一个对象装换为Json字符串
      */

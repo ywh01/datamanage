@@ -7,6 +7,10 @@
     <select id="getUserModelByID" resultType="com.datamanage.business.base.model.UserModel">
         select * from DM_USER where ID = #{id}
     </select>
+    
+    <insert id="insertUserModel" parameterType="com.datamanage.business.base.model.UserModel">
+        insert into DM_USER(ID,NAME,PWD,REMARK)
+    </insert>
 
 <!--    <resultMap id="queryForListMap" type="com.datamanage.business.base.model.UserModel">-->
 <!--        <id column="id" property="id" jdbcType="VARCHAR"/>-->

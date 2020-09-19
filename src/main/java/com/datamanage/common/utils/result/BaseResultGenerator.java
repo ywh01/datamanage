@@ -6,6 +6,8 @@ import com.datamanage.common.enums.BaseResultEnum;
 import com.datamanage.common.exception.BusinessException;
 import com.datamanage.common.utils.json.JSONUtil;
 
+import java.util.List;
+
 /**
  * BaseResult生成器
  *
@@ -28,13 +30,42 @@ public class BaseResultGenerator {
     }
 
     /**
+     * 操作成功响应结果， 自定义数据及信息
+     *
+     * @param message 自定义信息
+     * @param data    自定义数据
+     * @param <T>     自定义数据类型
+     * @return 响应结果
+     */
+    public static <T> String success(final String message, final T data) {
+        JSONObject obj = new JSONObject();
+        obj.put("code",BaseResultEnum.SUCCESS.getCode());
+        obj.put("message",message);
+        obj.put("data",data);
+        return obj.toString();
+    }
+
+    /**
      * 操作成功响应结果，自定义数据，默认信息
      *
      * @param data 自定义数据
      * @param <T>  自定义数据类型
      * @return 响应结果
      */
-    public static <T> String successData(final T data) {
+    public static <T> String successObj(final T data) {
+        JSONObject obj = new JSONObject();
+        obj.put("code",BaseResultEnum.SUCCESS.getCode());
+        obj.put("message",BaseResultEnum.SUCCESS.getMessage());
+        obj.put("data",data);
+        return obj.toString();
+    }
+    /**
+     * 操作成功响应结果，自定义数据，默认信息
+     *
+     * @param data List集合
+     * @return 响应结果
+     */
+    public static <T> String successArr(final T data) {
         JSONObject obj = new JSONObject();
         obj.put("code",BaseResultEnum.SUCCESS.getCode());
         obj.put("message",BaseResultEnum.SUCCESS.getMessage());
@@ -57,52 +88,34 @@ public class BaseResultGenerator {
     }
 
     /**
-     * 操作成功响应结果， 自定义数据及信息
-     *
-     * @param message 自定义信息
-     * @param data    自定义数据
-     * @param <T>     自定义数据类型
-     * @return 响应结果
-     */
-    public static <T> String success(final String message, final T data) {
-        JSONObject obj = new JSONObject();
-        obj.put("code",BaseResultEnum.SUCCESS.getCode());
-        obj.put("message",message);
-        obj.put("data",data);
-        return obj.toString();
-    }
-
-    /**
-     * 生成返回结果
-     *
-     * @param code    返回编码
-     * @param message 返回消息
-     * @param data    返回数据
-     * @param <T>     返回数据类型
-     * @return 返回结果
-     */
-    public static <T> String success(final int code, final String message, T data) {
-        JSONObject obj = new JSONObject();
-        obj.put("code",code);
-        obj.put("message",message);
-        obj.put("data",data);
-        return obj.toString();
-    }
-
-    /**
      * 带token的返回结果
      *
      * @param message 返回消息
+     * @param token   登录token
      * @param data    返回数据
      * @param <T>     返回数据类型
      * @return 返回结果
      */
-    public static <T> String success(final String message, final String token, T data) {
+    public static <T> String successToken(final String message, final String token, T data) {
         JSONObject obj = new JSONObject();
         obj.put("code",200);
         obj.put("message",message);
         obj.put("token",token);
-        obj.put("data", JSONUtil.toJSONObj(data));
+        obj.put("data", data);
+        return obj.toString();
+    }
+
+    /**
+     * 分页查询，带total总量
+     *
+     * @param data    返回数据
+     * @return 返回结果
+     */
+    public static <T> String successTotal(final long total, T data) {
+        JSONObject obj = new JSONObject();
+        obj.put("code",200);
+        obj.put("total",total);
+        obj.put("data", data);
         return obj.toString();
     }
 
