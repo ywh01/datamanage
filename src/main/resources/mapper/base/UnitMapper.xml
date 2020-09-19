@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示对应的对象映射-->
+<mapper namespace="com.datamanage.business.base.dao.UnitMapper">
+    <select id="getUnitModelList" resultType="com.datamanage.business.base.model.UnitModel">
+        select
+            ID, PID, (SELECT NAME FROM DM_UNIT WHERE ID = U_OUT.PID) AS PNAME,
+            NAME, SNAME, REMARK, CREATOR, CREATETIME, MODIFIER, UPDATETIME FROM DM_UNIT U_OUT
+        <where>
+            <if test="selectName != '%%'">
+                U_OUT.NAME like #{selectName} or U_OUT.SNAME like #{selectName}
+            </if>
+        </where>
+    </select>
+</mapper>

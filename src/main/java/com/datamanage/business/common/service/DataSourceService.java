@@ -23,7 +23,7 @@ public class DataSourceService {
         Page page = PageHelper.startPage(pageNum, pageSize);
         List<DBInfo> dbInfos = dbInfoMapper.queryDBInfoByUser(userId);
         JSONArray dbArr = JSONUtil.toJSONArray(dbInfos);
-        String success = BaseResultGenerator.successData(dbArr);
+        String success = BaseResultGenerator.successArr(dbArr);
         return success;
     }
 
