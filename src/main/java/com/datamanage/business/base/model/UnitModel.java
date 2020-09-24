@@ -1,5 +1,6 @@
 package com.datamanage.business.base.model;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,9 @@ public class UnitModel {
     private String pName;
     private String remark;
     private String creator;
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     private String modifier;
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 }

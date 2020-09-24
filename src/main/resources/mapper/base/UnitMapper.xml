@@ -14,4 +14,21 @@
             </if>
         </where>
     </select>
+
+    <insert id="insertUnit" parameterType="com.datamanage.business.base.model.UnitModel">
+        insert into DM_UNIT(ID, PID, NAME, SNAME, REMARK, CREATOR, CREATETIME, MODIFIER, UPDATETIME)
+        VALUES (#{id}, #{pid}, #{name}, #{sName}, #{remark}, #{creator}, #{createTime}, #{modifier}, #{updateTime})
+    </insert>
+
+    <update id="updateUnit" parameterType="com.datamanage.business.base.model.UnitModel">
+        update DM_UNIT set PID=#{pid}, NAME=#{name}, SNAME=#{sName}, REMARK=#{remark},
+            MODIFIER=#{modifier}, UPDATETIME=#{updateTime} where ID=#{id}
+    </update>
+    
+    <delete id="delUnitData">
+        delete from DM_UNIT where ID in
+        <foreach collection="list" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>
