@@ -5,11 +5,13 @@
 spring:
   datasource:
     druid:
-      driver-class-name: oracle.jdbc.OracleDriver
+      #driver-class-name: oracle.jdbc.OracleDriver
+      driver-class-name: com.mysql.cj.jdbc.Driver
       #表示使用的数据源类型,这里使用druid，所以不需指明
       #type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:oracle:thin:@//localhost:1521/ORCL
-      username: DATAMANAGE
+      #url: jdbc:oracle:thin:@//localhost:1521/ORCL
+      url: jdbc:mysql://localhost:3306/DATAMANAGE?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+      username: root
       password: 123456
       #启动程序时，在连接池中初始化多少个连接
       initial-size: 5
@@ -67,4 +69,5 @@ logging:
 ## swagger配置
 swagger:
   enable: true
+
 ###############################################################################

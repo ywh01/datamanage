@@ -4,19 +4,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace表示对应的对象映射-->
 <mapper namespace="com.datamanage.business.base.dao.UserMapper">
-    <select id="getUserModelByID" resultType="com.datamanage.business.base.model.UserModel">
+    <select id="getUserModelByID" resultType="com.datamanage.business.base.entity.UserModel">
         select * from DM_USER where ID = #{id}
     </select>
     
-    <insert id="insertUserModel" parameterType="com.datamanage.business.base.model.UserModel">
-        insert into DM_USER(ID,NAME,PWD,REMARK)
+    <insert id="insertUserModel" parameterType="com.datamanage.business.base.entity.UserModel">
+        insert into
+            DM_USER(ID,NAME,PWD,REMARK,USERTYPE,ROLETYPE,USERNAME,POSITION,PHONE,ADDRESS,STATUS,ROLEGROUP,CREATETIME,UPDATETIME)
+        values
+            (#{userModel.id},#{userModel.name},#{userModel.pwd},#{userModel.remark},#{userModel.userType},
+             #{userModel.roleType},#{userModel.userName},#{userModel.position},#{userModel.phone},
+             #{userModel.address},#{userModel.status},#{userModel.roleGroup},#{userModel.createTime},#{userModel.updateTime})
     </insert>
 
-<!--    <resultMap id="queryForListMap" type="com.datamanage.business.base.model.UserModel">-->
+<!--    <resultMap id="queryForListMap" type="com.datamanage.business.base.entity.UserModel">-->
 <!--        <id column="id" property="id" jdbcType="VARCHAR"/>-->
 <!--        <result column="username" property="username" jdbcType="VARCHAR"/>-->
 <!--        <result column="password" property="password" jdbcType="VARCHAR"/>-->
-<!--        <collection property="roles" javaType="java.util.List" ofType="com.datamanage.business.base.model.UserModel">-->
+<!--        <collection property="roles" javaType="java.util.List" ofType="com.datamanage.business.base.entity.UserModel">-->
 <!--            <id column="r_id" property="id" jdbcType="VARCHAR" />-->
 <!--            <result column="r_name" property="name" jdbcType="VARCHAR" />-->
 <!--            <result column="r_jsms" property="jsms" jdbcType="VARCHAR" />-->
@@ -26,7 +31,7 @@
 <!--        </collection>-->
 <!--    </resultMap>-->
 <!--
-    <select id="queryDBInfoById" resultType="com.datamanage.business.common.model.DBInfo">
+    <select id="queryDBInfoById" resultType="com.datamanage.business.common.model.DataSource">
         select * from DM_DATASOURCE where ID = #{id}
     </select>
 
@@ -35,7 +40,7 @@
     &lt;!&ndash;keyColumn表示数据库对应的字段&ndash;&gt;
     &lt;!&ndash;parameterType表示方法参数类型&ndash;&gt;
     <insert id="insertDBInfo" useGeneratedKeys="true" keyProperty="id" keyColumn="ID"
-            parameterType="com.datamanage.business.common.model.DBInfo">
+            parameterType="com.datamanage.business.common.model.DataSource">
         insert into
             DM_DATASOURCE(ID,NAME,DRIVERTYPE,VERSION,IP,PORT,DB,USER,PASSWORD,REMARKS,CREATOR,CREATOR,MODIFIER,UPDATETIME)
         values
@@ -43,7 +48,7 @@
             ,#{creator},#{createTime},#{modifier},#{updateTime})
     </insert>
     
-    <update id="updateDBInfo" parameterType="com.datamanage.business.common.model.DBInfo">
+    <update id="updateDBInfo" parameterType="com.datamanage.business.common.model.DataSource">
         update DM_DATASOURCE
         <set>
             <if test="id!=null">ID=#{id}</if>

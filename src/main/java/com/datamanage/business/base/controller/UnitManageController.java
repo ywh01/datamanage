@@ -1,7 +1,6 @@
 package com.datamanage.business.base.controller;
 
-import com.alibaba.fastjson.JSONArray;
-import com.datamanage.business.base.model.UnitModel;
+import com.datamanage.business.base.entity.UnitModel;
 import com.datamanage.business.base.service.UnitService;
 import com.datamanage.common.tokenconfig.UserLoginToken;
 import com.datamanage.common.utils.json.JSONUtil;
@@ -10,13 +9,10 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 /**
  * 这里实现单位注册，删除，修改，查询功能
  */
  @RestController
- @ResponseBody
  @Api("单位注册，删除，修改，查询功能")
 public class UnitManageController {
 

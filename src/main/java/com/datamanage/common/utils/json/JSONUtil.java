@@ -3,12 +3,9 @@ package com.datamanage.common.utils.json;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.JSONLibDataFormatSerializer;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimpleDateFormatSerializer;
-import com.datamanage.business.base.model.UserModel;
-import com.datamanage.business.common.model.DBInfo;
 
 import java.util.List;
 import java.util.Map;

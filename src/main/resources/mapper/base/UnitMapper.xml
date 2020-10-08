@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace表示对应的对象映射-->
 <mapper namespace="com.datamanage.business.base.dao.UnitMapper">
-    <select id="getUnitModelList" resultType="com.datamanage.business.base.model.UnitModel">
+    <select id="getUnitModelList" resultType="com.datamanage.business.base.entity.UnitModel">
         select
             ID, PID, (SELECT NAME FROM DM_UNIT WHERE ID = U_OUT.PID) AS PNAME,
             NAME, SNAME, REMARK, CREATOR, CREATETIME, MODIFIER, UPDATETIME FROM DM_UNIT U_OUT
@@ -15,12 +15,12 @@
         </where>
     </select>
 
-    <insert id="insertUnit" parameterType="com.datamanage.business.base.model.UnitModel">
+    <insert id="insertUnit" parameterType="com.datamanage.business.base.entity.UnitModel">
         insert into DM_UNIT(ID, PID, NAME, SNAME, REMARK, CREATOR, CREATETIME, MODIFIER, UPDATETIME)
         VALUES (#{id}, #{pid}, #{name}, #{sName}, #{remark}, #{creator}, #{createTime}, #{modifier}, #{updateTime})
     </insert>
 
-    <update id="updateUnit" parameterType="com.datamanage.business.base.model.UnitModel">
+    <update id="updateUnit" parameterType="com.datamanage.business.base.entity.UnitModel">
         update DM_UNIT set PID=#{pid}, NAME=#{name}, SNAME=#{sName}, REMARK=#{remark},
             MODIFIER=#{modifier}, UPDATETIME=#{updateTime} where ID=#{id}
     </update>

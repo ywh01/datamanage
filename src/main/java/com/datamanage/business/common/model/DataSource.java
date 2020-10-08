@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DBInfo implements Serializable {
+public class DataSource implements Serializable {
     private String id;
     private String name;
     private String driverType;
@@ -17,7 +17,7 @@ public class DBInfo implements Serializable {
     private String ip;
     private String port;
     private String db;
-    private String user;
+    private String linkUser;
     private String password;
     private String remarks;
     private String creator;

@@ -1,21 +1,19 @@
 package com.datamanage;
 
-import com.datamanage.business.common.dao.DBInfoMapper;
-import com.datamanage.business.common.model.DBInfo;
+import com.datamanage.business.common.dao.DataSourceMapper;
+import com.datamanage.business.common.model.DataSource;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.sql.DataSource;
-
 
 @SpringBootTest
 class DatamanageApplicationTests {
 
     @Autowired
-    private DataSource dataSource;
+    private javax.sql.DataSource dataSource;
 
     @Test
     void contextLoads() {
@@ -23,14 +21,14 @@ class DatamanageApplicationTests {
     }
 
     @Autowired
-    private DBInfoMapper dbInfoMapper;
+    private DataSourceMapper dataSourceMapper;
 
     @Test
     void queryCount() {
         Page<Object> page = PageHelper.startPage(1,5);
-        DBInfo dbInfo = dbInfoMapper.queryDBInfoById("1");
+        DataSource DATASOURCE = dataSourceMapper.queryDBInfoById("1");
         System.out.println("总条数"+page.getTotal()+"---点前页"+page.getPageNum());
-        System.out.println(dbInfo);
+        System.out.println(DATASOURCE);
     }
 
 }

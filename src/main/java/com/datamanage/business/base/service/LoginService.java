@@ -2,7 +2,7 @@ package com.datamanage.business.base.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.datamanage.business.base.dao.UserMapper;
-import com.datamanage.business.base.model.UserModel;
+import com.datamanage.business.base.entity.UserModel;
 import com.datamanage.common.tokenconfig.TokenUtil;
 import com.datamanage.common.utils.json.JSONUtil;
 import com.datamanage.common.utils.pwd.Md5Utils;
@@ -39,14 +39,17 @@ public class LoginService {
         //检查是否id重复
         String id = userModel.getId();
         UserModel checkUserId = userMapper.getUserModelByID(id);
-        if (userModel != null){
+        if (checkUserId != null){
             res = BaseResultGenerator.failure("账号已存在");
         }else{
+            String password = userModel.getPwd();
+            password = Md5Utils.hash(password);
+            userModel.setPwd(password);
             int i = userMapper.insertUserModel(userModel);
             if(i > 0){
-                res = BaseResultGenerator.failure("账号已存在");
-            }else{
                 res = BaseResultGenerator.successMessage("创建成功");
+            }else{
+                res = BaseResultGenerator.failure("账号已存在");
             }
         }
         return res;

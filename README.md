@@ -50,6 +50,18 @@ SpringBoot + Mybatis + Druid + Swagger + Redis + git
     6.设计逻辑模型映射，
         正向创建逻辑模型，在界面新建一个逻辑模型，通过界面拉线实现逻辑模型字段和物理模型字段的映射
         反向创建逻辑模型，先找一些实际的物理表，将其中元数据字段提取出来，去重后组成逻辑模型，逻辑模型的字段值即为各物理模型的绑定值
+        
+ 细节问题注意
+ 
+    1.oracle的varchar2(n)和varchar2(n char)类型在oracle中会自动将n char类型转为n*4的字节长度，如果需要精确值，那么需要
+    用到DBA_TAB_COLUMNS表中
+        DATA_LENGTH字段，真实的字段长度，单位为字节
+        CHAR_LENGTH字段，以字符显示列的长度，此值仅适用于以下数据类型：CHAR、VARCHAR2、NCHAR、NVARCHAR2
+        CHAR_USED字段，指示该列使用BYTE长度语义（B）或CHAR长度语义（C），或者数据类型是否不是以下任何一种（NULL）：CHAR、VARCHAR2、NCHAR、NVARCHAR2
+    2.oracle的number和number(30,3)字段
+        DATA_LENGTH字段，真实的字段长度，单位为字节，默认为22
+        DATA_PRECISION字段，存括号中逗号前面部分，默认为null
+        DATA_SCALE字段，存括号中逗号后半部分，默认为null
 （2）库表设计
 
 ![avator](./image/MetaDataDB.jpg)
