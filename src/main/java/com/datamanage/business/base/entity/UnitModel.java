@@ -1,4 +1,4 @@
-package com.datamanage.business.base.model;
+package com.datamanage.business.base.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;

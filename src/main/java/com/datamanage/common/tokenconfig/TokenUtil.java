@@ -2,7 +2,7 @@ package com.datamanage.common.tokenconfig;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.datamanage.business.base.model.UserModel;
+import com.datamanage.business.base.entity.UserModel;
 
 /**
  * Token工具类

@@ -1,12 +1,9 @@
 package com.datamanage.business.base.service;
 
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.datamanage.business.base.dao.UnitMapper;
-import com.datamanage.business.base.model.UnitModel;
-import com.datamanage.business.common.model.DBInfo;
+import com.datamanage.business.base.entity.UnitModel;
 import com.datamanage.common.utils.json.JSONUtil;
-import com.datamanage.common.utils.result.BaseResult;
 import com.datamanage.common.utils.result.BaseResultGenerator;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -14,7 +11,6 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service

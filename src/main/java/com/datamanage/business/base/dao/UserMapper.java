@@ -1,10 +1,11 @@
 package com.datamanage.business.base.dao;
 
-import com.datamanage.business.base.model.UserModel;
+import com.datamanage.business.base.entity.UserModel;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
 
     UserModel getUserModelByID(String id);
 
-    int insertUserModel(UserModel userModel);
+    int insertUserModel(@Param("userModel") UserModel userModel);
 }

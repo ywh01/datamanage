@@ -1,6 +1,6 @@
 package com.datamanage.business.base.dao;
 
-import com.datamanage.business.base.model.UnitModel;
+import com.datamanage.business.base.entity.UnitModel;
 
 import java.util.List;
 

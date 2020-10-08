@@ -1,38 +1,38 @@
 package com.datamanage.business.common.dao;
 
-import com.datamanage.business.common.model.DBInfo;
+import com.datamanage.business.common.model.DataSource;
 
 import java.util.List;
 
 
-public interface DBInfoMapper{
+public interface DataSourceMapper {
     /**
      * 根据用户id查询数据源
      * @param userId
      * @return 数据源数组
      */
-    List<DBInfo> queryDBInfoByUser(String userId);
+    List<DataSource> queryDBInfoByUser(String userId);
 
     /**
      * 根据id查询数据源
      * @param id
      * @return 单个数据源对象
      */
-    DBInfo queryDBInfoById(String id);
+    DataSource queryDBInfoById(String id);
 
     /**
      * 增加一个数据源
-     * @param dbInfo
+     * @param DATASOURCE
      * @return 成功结果数
      */
-    int insertDBInfo(DBInfo dbInfo);
+    int insertDBInfo(DataSource DATASOURCE);
 
     /**
      * 更新数据源信息
-     * @param dbInfo
+     * @param DATASOURCE
      * @return 成功结果数
      */
-    int updateDBInfo(DBInfo dbInfo);
+    int updateDBInfo(DataSource DATASOURCE);
 
     /**
      * 删除数据源
@@ -40,4 +40,6 @@ public interface DBInfoMapper{
      * @return 成功结果数
      */
     int deleteDBInfo(String id);
+
+    List<DataSource> getAllDataSource(String selectName);
 }

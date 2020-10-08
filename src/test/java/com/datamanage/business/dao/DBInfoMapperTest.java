@@ -1,6 +1,6 @@
 package com.datamanage.business.dao;
 
-import com.datamanage.business.common.dao.DBInfoMapper;
+import com.datamanage.business.common.dao.DataSourceMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,11 +9,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class DBInfoMapperTest{
     @Autowired
-    private DBInfoMapper dbInfoMapper;
+    private DataSourceMapper dataSourceMapper;
 
     @Test
     void queryDBInfoByUser() {
-        dbInfoMapper.queryDBInfoByUser("1");
+        dataSourceMapper.queryDBInfoByUser("1");
     }
 
     @Test
